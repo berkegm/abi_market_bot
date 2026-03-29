@@ -85,11 +85,11 @@ def main(threshold: int, loop_delay: float, safe_mode: bool, use_second_click: b
             else:
                 print(f"Detected price: {price}")
                 if price <= threshold:
-                    print("Price ? threshold — buying (disabled in test mode).")
+                    print("Price ? threshold â€” buying (disabled in test mode).")
                     # click(BUY_CLICK, clicks=2, interval=0.15)
                     time.sleep(BUY_COOLDOWN)
                 else:
-                    print("Price above threshold — refreshing again.")
+                    print("Price above threshold â€” refreshing again.")
 
             if safe_mode:
                 time.sleep(loop_delay)
@@ -125,12 +125,12 @@ if __name__ == "__main__":
     if threshold is None:
         while True:
             try:
-                threshold = int(input("Eþik fiyat (threshold) deðerini girin (örn. 150): ").strip())
+                threshold = int(input("Price Treshold: ").strip())
                 break
             except ValueError:
-                print("Geçerli bir sayý giriniz.")
+                print("Enter a valid number.")
 
-    use_second_click = input("kinci click yapýlsýn mý? (y/n): ").strip().lower() == "y"
+    use_second_click = input("Do you want to double click (y/n) ").strip().lower() == "y"
 
     main(
         threshold=threshold,
